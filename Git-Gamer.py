@@ -37,7 +37,7 @@ for num1 in range(len(save_location_list)):
 	if not (path.isdir(temp_path)):
 		os.mkdir(temp_path)
 	temp_loc = temp_loc + "\*"
-	print(f'"{temp_loc}"', f'"{temp_path}"')
+	# print(f'copy "{temp_loc}" "{temp_path}"')
 	os.system(f'copy "{temp_loc}" "{temp_path}"')
 os.chdir(git_gamer_location)
 os.system("git add *")
