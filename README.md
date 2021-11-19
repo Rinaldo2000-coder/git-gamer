@@ -15,11 +15,9 @@ step 4.b) Enter the path where your files or game profiles are located.
 
 example1 ---> C:\Users\<Username>\Documents\GDA Miami Saved Files
 example2 ---> D:\Documents\GDA Newyork Saved Files
-step 4.c) Add a extra line after inserting the path in your file
 
 step 5.a) Open or Create "game-name.txt" in the directory where the .exe file is placed
 step 5.b) Enter the Games name or folders name in a correct order of the path name
-step 5.c) Add a extra line after inserting the game name in your file
 
 example1 ----> GDA Miami
 example2 ----> GDA Newyork

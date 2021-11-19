@@ -1,1 +1,1 @@
-https://github.com/Rinaldo2000-coder/test.git
+https://git***.com/<username>/<reponame>.git
