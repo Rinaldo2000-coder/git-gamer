@@ -50,7 +50,7 @@ for num1 in range(len(save_location_list)):
 		os.mkdir(temp_path)
 	temp_loc = temp_loc + "\\*.*"
 	# print(f'copy "{temp_loc}" "{temp_path}"')
-	os.system(f'echo  | del /Q /S /F "{temp_path}"')
+	os.system(f'del /Q /S /F "{temp_path}" | cls')
 	os.system(f'xcopy /S /Q /F /Y "{temp_loc}" "{temp_path}"')
 
 os.chdir(git_gamer_location)
