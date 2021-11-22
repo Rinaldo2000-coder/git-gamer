@@ -10,23 +10,23 @@ git_gamer_location = path.join(home, "GitGamer")
 current_cwd = os.getcwd()
 
 #hide console
-# si = subprocess.STARTUPINFO()
-# si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+si = subprocess.STARTUPINFO()
+si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 """ passing starttupinfo=si argument into subprocess.call function"""
 if not (path.isdir(git_gamer_location)):
     os.mkdir(git_gamer_location)
     os.chdir(git_gamer_location)
-    subprocess.call('git init -b "main"', shell=True)
+    subprocess.call('git init -b "main"', startupinfo=si)
     os.chdir(current_cwd)
     with open("git-repo-url.txt", 'r') as url_file:
         remote_url = url_file.readline()
         os.chdir(git_gamer_location)
-        subprocess.call(f"git remote add origin {remote_url}", shell=True)
+        subprocess.call(f"git remote add origin {remote_url}", startupinfo=si)
         os.chdir(current_cwd)
         url_file.close()
 else:
     os.chdir(git_gamer_location)
-    subprocess.call("git pull origin", shell=True)
+    subprocess.call("git pull origin", startupinfo=si)
     os.chdir(current_cwd)
 # read location file
 def remove_lines(list_path):
@@ -57,16 +57,13 @@ for num1 in range(len(save_location_list)):
         os.mkdir(temp_path)
     temp_loc = temp_loc + "\\*.*"
     # print(f'copy "{temp_loc}" "{temp_path}"')
-    subprocess.call(f'del /Q /S /F "{temp_path}" | cls', shell=True)
-    subprocess.call(f'xcopy /S /Q /F /Y "{temp_loc}" "{temp_path}"', shell=True)
+    subprocess.call(f'del /Q /S /F "{temp_path}" | cls', shell=True , startupinfo=si)
+    subprocess.call(f'xcopy /S /Q /F /Y "{temp_loc}" "{temp_path}"', startupinfo=si)
 
 os.chdir(git_gamer_location)
-subprocess.call("git add .", shell=True)
+subprocess.call("git add .", startupinfo=si)
 
-comment = input("Please enter a commit message : ")
-date_time = datetime.now().strftime("%H-%M:%d-%m-%Y")
+date_time = datetime.now().strftime("%D%M%Y%H%M%S")
 
-subprocess.call(f"git commit -m '{comment}-{date_time}'", shell=True)
-subprocess.call("git push -u origin main", shell=True)
-
-print("The repository is updated sucessfully!!!")
+subprocess.call(f"git commit -m '{date_time}'", startupinfo=si)
+subprocess.call("git push -u origin main", startupinfo=si)
